@@ -1,0 +1,281 @@
+/* =========================================================================
+   BRUTAL.DIGITAL — colors_and_type.css
+   The single source of truth for tokens. Import this once, use vars only.
+   ========================================================================= */
+
+/* ---------- Webfonts ---------- */
+/* Substitutions flagged in README. Drop original .woff2 in fonts/ to override. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* If owner ships custom display face, uncomment + point at fonts/ */
+/*
+@font-face {
+  font-family: 'Druk';
+  src: url('fonts/Druk-Wide-Bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+:root {
+  /* ============== COLOR ============== */
+  /* Surfaces */
+  --bg-dark:        #0a0a0a;   /* near-black, primary surface */
+  --bg-acid:        #c4ff00;   /* acid lime, loud surface */
+  --bg-light:       #ededed;   /* off-white, rare surface */
+  --bg-elev-1:      #141414;   /* slightly elevated dark */
+  --bg-elev-2:      #1a1a1a;   /* card on dark */
+  --bg-elev-3:      #2a2a2a;   /* divider / hairline area on dark */
+
+  /* Foregrounds */
+  --fg-1:           #ededed;   /* primary fg on dark */
+  --fg-2:           #a8a8a8;   /* secondary fg on dark */
+  --fg-3:           #6b6b6b;   /* muted fg on dark */
+  --fg-on-acid:     #0a0a0a;   /* fg on lime */
+  --fg-on-light:    #0a0a0a;   /* fg on off-white */
+
+  /* Accent (single, no tints) */
+  --accent:         #c4ff00;   /* acid lime — the only accent */
+  --accent-ink:     #0a0a0a;   /* always the ink-on-acid pairing */
+
+  /* Borders & lines */
+  --line-1:         #ededed;   /* hairline on dark */
+  --line-2:         #2a2a2a;   /* hairline on dark, subtle */
+  --line-on-light:  #0a0a0a;   /* hairline on light/acid */
+
+  /* Semantic (kept minimal — brutalist systems don't do error-red) */
+  --semantic-fg:    var(--accent);
+  --semantic-warn:  #ffb800;   /* used sparingly, only in dev/admin UIs */
+
+  /* ============== TYPE ============== */
+  --font-display: 'Archivo Black', 'Druk', 'Impact', 'Helvetica Neue', sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'IBM Plex Mono', monospace;
+
+  /* Display scale (slides / heroes) */
+  --t-display-xxl: 240px;   /* full-bleed hero */
+  --t-display-xl:  160px;   /* slide H1 */
+  --t-display-l:   112px;   /* slide H1 small */
+  --t-display-m:   80px;    /* web hero */
+  --t-display-s:   56px;    /* sub-display */
+
+  /* Headings (web) */
+  --t-h1: 64px;
+  --t-h2: 48px;
+  --t-h3: 32px;
+  --t-h4: 24px;
+
+  /* Body */
+  --t-body-l: 20px;
+  --t-body:   17px;
+  --t-body-s: 15px;
+
+  /* Mono micro-labels */
+  --t-mono-l: 14px;
+  --t-mono:   12px;
+  --t-mono-s: 11px;
+
+  /* Leading & tracking */
+  --lh-display: 0.9;
+  --lh-tight:   1.05;
+  --lh-body:    1.45;
+  --tr-display: -0.02em;
+  --tr-mono:    0.12em;
+
+  /* ============== SPACING ============== */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  80px;
+  --s-10: 96px;
+  --s-11: 128px;
+
+  /* ============== ELEVATION ============== */
+  /* Brutalism = no shadows. Elevation is BORDER + COLOR only. */
+  --border-1: 1px solid var(--line-1);
+  --border-2: 2px solid var(--line-1);
+  --border-thick: 4px solid var(--line-1);
+  --border-on-light: 2px solid var(--line-on-light);
+
+  /* "Press" offset — the only "shadow" the system allows: a hard offset shape */
+  --press-offset: 4px 4px 0 0 var(--accent);
+  --press-offset-ink: 4px 4px 0 0 var(--accent-ink);
+
+  /* Radii — explicit zero, do not change */
+  --radius-0: 0;
+
+  /* Motion */
+  --t-fast: 100ms linear;
+  --t-base: 150ms linear;
+
+  /* Z layers */
+  --z-base:    1;
+  --z-chrome:  10;
+  --z-overlay: 100;
+  --z-modal:   1000;
+}
+
+/* =========================================================================
+   SEMANTIC ELEMENT STYLES — base reset + typographic defaults
+   ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-dark);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400; /* Archivo Black is single-weight */
+  text-transform: uppercase;
+  letter-spacing: var(--tr-display);
+  line-height: var(--lh-display);
+  margin: 0;
+}
+
+h1 { font-size: var(--t-h1); }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); }
+h4 { font-size: var(--t-h4); line-height: var(--lh-tight); }
+
+p { margin: 0 0 var(--s-4); max-width: 64ch; }
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a:hover { background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+
+code, kbd, pre, samp { font-family: var(--font-mono); font-size: 0.9em; }
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+/* =========================================================================
+   UTILITY CLASSES — used across kits
+   ========================================================================= */
+
+/* Mono micro-label — section markers, file tags, breadcrumbs */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-mono);
+  font-weight: 500;
+  line-height: 1;
+}
+.mono-l { font-size: var(--t-mono-l); }
+.mono-s { font-size: var(--t-mono-s); }
+
+/* Display headline */
+.display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: var(--tr-display); line-height: var(--lh-display); }
+
+/* The acid highlight block — the signature move */
+.hl {
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.05em 0.25em 0.1em;
+  display: inline-block;
+}
+
+/* Mono tag pill — flat rect with mono caps */
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-mono);
+  font-weight: 600;
+  padding: 6px 10px 7px;
+  line-height: 1;
+}
+.tag.tag-outline { background: transparent; color: var(--fg-1); border: 1px solid var(--line-1); }
+.tag.tag-ink { background: var(--accent-ink); color: var(--accent); }
+
+/* Square block bullet */
+.block-bullet::before {
+  content: "";
+  display: inline-block;
+  width: 0.7em; height: 0.7em;
+  background: var(--accent);
+  margin-right: 0.5em;
+  vertical-align: -0.05em;
+}
+
+/* Section marker (e.g. "§ 02 / MECHANICS") */
+.section-marker { font-family: var(--font-mono); font-size: var(--t-mono); text-transform: uppercase; letter-spacing: var(--tr-mono); color: var(--fg-2); }
+
+/* Hard button */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: var(--t-mono-l);
+  text-transform: uppercase; letter-spacing: var(--tr-mono); font-weight: 600;
+  padding: 14px 22px;
+  border: 2px solid var(--accent-ink);
+  background: var(--accent); color: var(--accent-ink);
+  cursor: crosshair;
+  text-decoration: none;
+  transition: transform var(--t-fast), background var(--t-fast), color var(--t-fast);
+}
+.btn:hover { background: var(--accent-ink); color: var(--accent); }
+.btn:active { transform: translate(2px, 2px); }
+.btn-ghost { background: transparent; color: var(--fg-1); border: 2px solid var(--fg-1); }
+.btn-ghost:hover { background: var(--fg-1); color: var(--bg-dark); }
+
+/* Hard input */
+.input {
+  background: transparent;
+  border: 2px solid var(--fg-1);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  padding: 14px 16px;
+  border-radius: 0;
+  width: 100%;
+}
+.input:focus { outline: none; border-color: var(--accent); }
+.input::placeholder { color: var(--fg-3); }
+
+/* Hard card */
+.card {
+  border: 2px solid var(--line-1);
+  padding: 32px;
+  background: transparent;
+}
+.card.card-ink { background: var(--accent-ink); }
+.card.card-acid { background: var(--accent); color: var(--accent-ink); border-color: var(--accent-ink); }
+.card.card-light { background: var(--bg-light); color: var(--fg-on-light); border-color: var(--fg-on-light); }
+
+/* Diagonal trim lines decoration (used on dark slide corners) */
+.trim-diag {
+  position: absolute;
+  width: 240px;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left center;
+}
+
+/* Concrete grain — applied via SVG noise filter as a backdrop */
+.grain {
+  position: relative;
+}
+.grain::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.92  0 0 0 0 0.92  0 0 0 0 0.92  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}

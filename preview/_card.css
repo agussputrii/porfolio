@@ -1,0 +1,27 @@
+/* Shared styles for preview cards. Each card is 700px wide. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: #0a0a0a;
+  color: #ededed;
+  font-family: 'Inter', system-ui, sans-serif;
+  width: 700px;
+  overflow: hidden;
+}
+.card { width: 700px; padding: 28px 32px; background: #0a0a0a; }
+.card.acid { background: #c4ff00; color: #0a0a0a; }
+.card.light { background: #ededed; color: #0a0a0a; }
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 500;
+}
+.display { font-family: 'Archivo Black', Impact, sans-serif; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; }
+.hl { background: #c4ff00; color: #0a0a0a; padding: 0 6px 2px; display: inline-block; }
+
+.row { display: flex; gap: 12px; align-items: stretch; }
+.col { display: flex; flex-direction: column; gap: 12px; }

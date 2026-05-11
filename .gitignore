@@ -1,0 +1,9 @@
+# Claude Code internals — never upload
+.claude/
+
+# Personal uploads (CV, screenshots)
+uploads/
+
+# OS
+.DS_Store
+Thumbs.db
