@@ -25,7 +25,7 @@ function About({ setRoute }) {
   ];
 
   const speakers = [
-    "REDIPP · Jornadas Internacionales "Latinoamérica para Contar" – UCH",
+    "REDIPP · Jornadas Internacionales — Latinoamérica para Contar – UCH",
     "UNCuyo · UtopIAs — Caso de éxito: IA en escuelas",
     "Cámara de Senadores · Programa 7 Aportes de IA",
     "SAIA Mendoza · CNN en predicción de estado mamográfico",
